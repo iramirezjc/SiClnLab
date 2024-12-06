@@ -2,10 +2,16 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'dsn' => 'sqlsrv:Server=localhost;Database=sicinlab',
     'username' => 'root',
-    'password' => '',
+    'password' => 'gYm7Tahj',
     'charset' => 'utf8',
+
+    //'class' => 'yii\db\Connection',
+    //'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    //'username' => 'root',
+    //'password' => '',
+    //'charset' => 'utf8',
 
     // Schema cache options (for production environment)
     //'enableSchemaCache' => true,
