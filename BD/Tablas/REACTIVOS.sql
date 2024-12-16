@@ -1,0 +1,13 @@
+CREATE TABLE REACTIVOS(
+	IdReactivo INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Nombre VARCHAR(100) NOT NULL,
+	Formula VARCHAR(100) NOT NULL,
+	PeligroSalud VARCHAR(1) NOT NULL,
+	PeligroInflamable VARCHAR(1) NOT NULL,
+	PeligroReactividad VARCHAR(1) NOT NULL,
+	PeligroEspecifico VARCHAR(10) NOT NULL,
+	Cantidad INT NOT NULL,
+	IdUnidad INT NOT NULL,
+	CONSTRAINT fk_unidades_reactivos FOREIGN KEY (IdUnidad) REFERENCES UNIDADES(IdUnidad)
+)
+
