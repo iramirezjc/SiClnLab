@@ -7,7 +7,7 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var app\models\BuscaEquipo $searchModel */
+/** @var app\models\searchs\BuscaEquipo $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Equipos';
@@ -55,6 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
         'summary' => false,
+        'emptyText' => 'No se encontraron resultados.'
     ]);  ?>
 
 </div>

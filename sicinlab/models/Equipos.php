@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * Este es el model class para la table "EQUIPOS".
+ * Este es la clase modelo para la tabla "EQUIPOS".
  *
  * @property int $IdEquipo
  * @property string $Nombre
@@ -44,10 +44,10 @@ class Equipos extends \yii\db\ActiveRecord
     {
         return [
             'IdEquipo' => 'Id Equipo',
-            'Nombre' => 'Nombre',
+            'Nombre' => 'Nombre del Equipo',
             'Cantidad' => 'Cantidad',
-            'Descripcion' => 'Descripcion',
-            'TipoEquipo' => 'Tipo Equipo',
+            'Descripcion' => 'Descripción',
+            'TipoEquipo' => 'Tipo de Equipo',
         ];
     }
 }
