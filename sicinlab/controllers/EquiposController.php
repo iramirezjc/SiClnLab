@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use app\models\Equipos;
-use app\models\BuscaEquipo;
+use app\models\searchs\BuscaEquipo;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -40,6 +40,7 @@ class EquiposController extends Controller
     {
         $searchModel = new BuscaEquipo();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        $dataProvider->sort = false;
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -103,7 +104,7 @@ class EquiposController extends Controller
     }
 
     /**
-     * Elimina un equipo Existente. Deletes an existing Equipos model.
+     * Elimina un equipo Existente.
      * Si la eliminación es realizada, el navegador es direccionado a la pagina index.
      * @param int $IdEquipo Id Equipo
      * @return \yii\web\Response
