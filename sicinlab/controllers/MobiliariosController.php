@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
 class MobiliariosController extends Controller
 {
     /**
+     * restriccion para la accion delete, solo por POST
      * @inheritDoc
      */
     public function behaviors()

@@ -31,7 +31,7 @@ class BuscaEquipo extends Equipos
     }
 
     /**
-     * Crea una instancia data provider con la sentencia search apicada
+     * Crea una instancia data provider con la sentencia search aplicada
      *
      * @param array $params
      *
