@@ -119,7 +119,7 @@ class MaterialesController extends Controller
     }
 
     /**
-     * Busca los equipos, basandose en el valor de la clave primaria.
+     * Busca los Materiales, basandose en el valor de la clave primaria.
      * Si el modelo no es encontrado, lanza una excepsion 404 HTTP.
      * @param int $IdMaterial Id Material
      * @return Materiales the loaded model

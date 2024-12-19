@@ -2,16 +2,16 @@
 
 namespace app\controllers;
 
-use app\models\Mobiliarios;
-use app\models\searchs\BuscaMobiliario;
+use app\models\Reactivos;
+use app\models\searchs\BuscaReactivo;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MobiliariosController implementacion del CRUD acciones para el modelo Mobiliario.
+ * MaterialesController implementacion del CRUD acciones para Materiales model.
  */
-class MobiliariosController extends Controller
+class ReactivosController extends Controller
 {
     /**
      * restriccion para la accion delete, solo por POST
@@ -33,13 +33,13 @@ class MobiliariosController extends Controller
     }
 
     /**
-     * Lista todos los Muebles.
+     * Lista todos los Reactivos.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new BuscaMobiliario();
+        $searchModel = new BuscaReactivo();
         $dataProvider = $searchModel->search($this->request->queryParams);
         $dataProvider->sort = false;
 
@@ -50,30 +50,30 @@ class MobiliariosController extends Controller
     }
 
     /**
-     * Pantalla simple de Equipos model.
-     * @param int $IdMobiliario Id Edel Mueble
+     * Pantalla simple muestra el detalle del Modelo Reajctivos.
+     * @param int $IdReactivo => Id Reactivo
      * @return string
      * @throws NotFoundHttpException si el modelo no es encontrado
      */
-    public function actionView($IdMobiliario)
+    public function actionView($IdReactivo)
     {
         return $this->render('view', [
-            'model' => $this->findModel($IdMobiliario),
+            'model' => $this->findModel($IdReactivo),
         ]);
     }
 
     /**
-     * Registra un nuevo Mueble.
+     * Registra un nuevo Reactivo.
      * si la creacion es realizada, el navegador es direccionado a la pagina 'view'.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Mobiliarios();
+        $model = new Reactivos();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'IdMobiliario' => $model->IdMobiliario]);
+                return $this->redirect(['view', 'IdReactivo' => $model->IdReactivo]);
             }
         } else {
             $model->loadDefaultValues();
@@ -85,18 +85,18 @@ class MobiliariosController extends Controller
     }
 
     /**
-     * Actualiza Mobliario existete.
+     * Actualiza Reactivos model existetes.
      * Si la actualizacion es realizada, el navegador es direccionado a la pagina view.
-     * @param int $IdMobiliario Id Mobiliario
+     * @param int $IdReactivo Id Material
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException Si el modelo no es encontrado.
      */
-    public function actionUpdate($IdMobiliario)
+    public function actionUpdate($IdReactivo)
     {
-        $model = $this->findModel($IdMobiliario);
+        $model = $this->findModel($IdReactivo);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'IdMobiliario' => $model->IdMobiliario]);
+            return $this->redirect(['view', 'IdReactivo' => $model->IdReactivo]);
         }
 
         return $this->render('update', [
@@ -105,29 +105,29 @@ class MobiliariosController extends Controller
     }
 
     /**
-     * Elimina un equipo Existente.
+     * Elimina un Reactivo Existente.
      * Si la eliminación es realizada, el navegador es direccionado a la pagina index.
-     * @param int $IdMobiliario Id Mobiliario
+     * @param int $IdReactivo Id Reactivo
      * @return \yii\web\Response
      * @throws NotFoundHttpException Si el modelo no es encontrado.
      */
-    public function actionDelete($IdMobiliario)
+    public function actionDelete($IdReactivo)
     {
-        $this->findModel($IdMobiliario)->delete();
+        $this->findModel($IdReactivo)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Busca los Mobiliarios, basandose en el valor de la clave primaria.
+     * Busca los Reactivos, basandose en el valor de la clave primaria.
      * Si el modelo no es encontrado, lanza una excepsion 404 HTTP.
-     * @param int $IdMobiliario Id Mobiliario
-     * @return Mobiliarios the loaded model
+     * @param int $IdReactivo Id Reactivo
+     * @return Materiales the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($IdMobiliario)
+    protected function findModel($IdReactivo)
     {
-        if (($model = Mobiliarios::findOne(['IdMobiliario' => $IdMobiliario])) !== null) {
+        if (($model = Reactivos::findOne(['IdReactivo' => $IdReactivo])) !== null) {
             return $model;
         }
 
