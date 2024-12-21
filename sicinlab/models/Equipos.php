@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+use \yii\db\ActiveRecord;
 
 use Yii;
 
@@ -13,7 +14,7 @@ use Yii;
  * @property string $Descripcion
  * @property string $TipoEquipo
  */
-class Equipos extends \yii\db\ActiveRecord
+class Equipos extends ActiveRecord
 {
     /**
      * {@inheritdoc}

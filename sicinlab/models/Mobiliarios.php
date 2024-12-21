@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use \yii\db\ActiveRecord;
 
 /**
  * Este es la clase modelo para la tabla "MOBILIARIO".
@@ -13,7 +14,7 @@ use Yii;
  * @property string $Descripcion
  * @property string $Material
  */
-class Mobiliarios extends \yii\db\ActiveRecord
+class Mobiliarios extends ActiveRecord
 {
     /**
      * {@inheritdoc}

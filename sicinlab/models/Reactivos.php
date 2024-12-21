@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use \yii\db\ActiveRecord;
 
 /**
  * Este es la clase modelo para la tabla "REACTIVOS".
@@ -17,7 +18,7 @@ use Yii;
  * @property int $Cantidad
  * @property int $Unidad
  */
-class Reactivos extends \yii\db\ActiveRecord
+class Reactivos extends ActiveRecord
 {
     /**
      * {@inheritdoc}

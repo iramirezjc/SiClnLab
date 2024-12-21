@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use \yii\db\ActiveRecord;
 
 /**
  * Este es la clase modelo para la tabla "MATERIALES".
@@ -14,7 +15,7 @@ use Yii;
  * @property string $Marca
  * @property int $IdUnidad
  */
-class Materiales extends \yii\db\ActiveRecord
+class Materiales extends ActiveRecord
 {
     /**
      * {@inheritdoc}

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use \yii\db\ActiveRecord;
 
 /**
  * Este es la clase modelo para la tabla "UNIDADES".
@@ -10,7 +11,7 @@ use Yii;
  * @property int $IdUnidad
  * @property string $Nombre
  */
-class Unidades extends \yii\db\ActiveRecord
+class Unidades extends ActiveRecord
 {
     /**
      * {@inheritdoc}
