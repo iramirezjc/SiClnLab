@@ -33,14 +33,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 <header id="header">
     <?php
-    //Yii::$app->view->registerCssFile('@web/css/global.css', ['depends' => [\yii\bootstrap5\BootstrapAsset::class],]);
+    Yii::$app->view->registerCssFile('@web/css/global.css', ['depends' => [\yii\bootstrap5\BootstrapAsset::class],]);
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => ['class' => 'navbar-expand-md navbar-dark itsh-navbar fixed-top']
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
+        'options' => ['class' => ' navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Equipos', 'url' => ['/equipos/index']],
@@ -48,6 +48,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             ['label' => 'Materiales', 'url' => ['/materiales/index']],
             ['label' => 'Reactivos', 'url' => ['/reactivos/index']],
             ['label' => 'Usuarios', 'url' => ['/usuarios/index']],
+        ]
+    ]);
+
+    echo Nav::widget([
+        'options' => ['class' => ' navbar-nav ms-auto'],
+        'items' => [
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest

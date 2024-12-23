@@ -1,0 +1,35 @@
+/* Opcional: Cambiar el contenedor para que se vea mejor */
+.site-login {
+    width: 100%; /* Asegura que el formulario ocupe el 100% del contenedor */
+    max-width: 600px; /* Define un tamaño máximo */
+    margin: 10px auto; /* Centrado horizontal */
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 10px;
+    border: 1px solid rgba(183,131,74);
+    margin-top: 10%;
+    opacity: 0.9;
+}
+
+button[name='login-button'] {
+    width: 250%; /* Hacer que el botón ocupe todo el ancho disponible */
+    padding:  0; /* Aumenta el padding vertical del botón */
+    font-size: 20px; /* Aumenta el tamaño de la fuente */
+    height: 40px;
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambio de cursor para mostrar que es clickeable */
+    background-color: #215D40;;
+}
+
+/* Estilo para los campos de entrada (username y password) */
+input#loginform-username, 
+input#loginform-password {
+    width: 250%; /* Ocupa el 100% del contenedor */
+    padding: 15px; /* Aumenta el espaciado interno */
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    height: 40px; /* Aumenta la altura de los campos */
+    border-radius: 10px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
+    border: 1px solid rgba(183,131,74);
+}
