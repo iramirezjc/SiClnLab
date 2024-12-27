@@ -28,8 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'Matricula',
-            'Nombre', 
-            'Apellido', 
+            'NombreUsuario', 
+            [
+                'label' => 'Nombre Completo',
+                'value' => function ($model) { return $model->Nombre . " " . $model->Apellido; },
+            ],
             [
                 'label' => 'Nivel de Usuario',
                 'value' => function ($model) { return $model->nivelUsuario ? $model->nivelUsuario->NombreNivel : 'No disponible'; },

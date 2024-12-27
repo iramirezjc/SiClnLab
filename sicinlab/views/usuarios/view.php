@@ -41,13 +41,15 @@ $this->registerCss("
 
     <p>
         <?= Html::a('Actualizar', ['update', 'Matricula' => $model->Matricula], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Eliminar', ['delete', 'Matricula' => $model->Matricula], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => '¿Estas seguro que deseas eliminar este usuario?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?php if (Yii::$app->user->identity->Matricula != $model->Matricula): ?>
+            <?= Html::a('Eliminar', ['delete', 'Matricula' => $model->Matricula], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => '¿Estas seguro que deseas eliminar este usuario?',
+                    'method' => 'post',
+                ],
+            ])?>
+        <?php endif; ?>
     </p>
 
     <?= DetailView::widget([

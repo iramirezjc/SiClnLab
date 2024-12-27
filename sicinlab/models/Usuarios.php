@@ -18,7 +18,7 @@ use Yii;
  * @property int $IdNivelUsuario
  * @property string $NombreUsuario
  */
-class Usuarios extends ActiveRecord implements IdentityInterface
+class Usuarios extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -53,6 +53,7 @@ class Usuarios extends ActiveRecord implements IdentityInterface
             [['Matricula'], 'integer'],
             [['Nombre'], 'string', 'max' => 100],
             [['Apellido'], 'string', 'max' => 100],
+            [['Contrasenia'], 'string', 'max' => 45],
             [['FechaNacimiento'], 'string', 'max' => 10],
             [['Telefono'], 'string', 'max' => 20],
             [['IdNivelUsuario'], 'integer'],
@@ -73,69 +74,7 @@ class Usuarios extends ActiveRecord implements IdentityInterface
             'FechaNacimiento' => 'Fecha de Nacimiento', 
             'Telefono' => 'Teléfono', 
             'IdNivelUsuario' => 'Nivel de Usuario', 
-            'NombreUsuario' => 'Nombre de Usuario',
+            'NombreUsuario' => 'Usuario',
         ];
-    }
-
-    /**
-     * // Busca el usuario por Matricula
-     * {@inheritdoc}
-     */
-    public static function findIdentity($Matricula)
-    {
-        return static::findOne($Matricula);
-    }
-
-    /**
-     * Busca el usuario por nombre de usuario
-     *
-     * @param string $username
-     * @return static|null
-     */
-    public static function findByUsername($NombreUsuario)
-    {
-        return static::findOne(['NombreUsuario' => $NombreUsuario]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return $this->Matricula;
-    }
-
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
-        // Si el campo "accessToken" está en tu tabla, lo usas para buscar
-        return static::findOne(['accessToken' => $token]);
-    }
-
-     /**
-     * {@inheritdoc}
-     */
-    public function getAuthKey()
-    {
-        return $this->authKey;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->authKey === $authKey;
-    }
-
-    /**
-     * Valida la contraseña del usuario
-     *
-     * @param string $Contrasenia
-     * @return bool
-     */
-    public function validatePassword($Contrasenia)
-    {
-        // Verifica que la contraseña coincida con la guardada en la base de datos
-        return $this->Contrasenia === $Contrasenia;
     }
 }

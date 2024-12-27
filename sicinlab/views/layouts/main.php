@@ -43,11 +43,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'options' => ['class' => ' navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Equipos', 'url' => ['/equipos/index']],
-            ['label' => 'Mobiliarios', 'url' => ['/mobiliarios/index']],
-            ['label' => 'Materiales', 'url' => ['/materiales/index']],
-            ['label' => 'Reactivos', 'url' => ['/reactivos/index']],
-            ['label' => 'Usuarios', 'url' => ['/usuarios/index']],
+            !Yii::$app->user->isGuest
+                ?['label' => 'Equipos', 'url' => ['/equipos/index']] : (""),
+            !Yii::$app->user->isGuest
+                ?['label' => 'Mobiliarios', 'url' => ['/mobiliarios/index']] : (""),
+            !Yii::$app->user->isGuest
+                ?['label' => 'Materiales', 'url' => ['/materiales/index']]: (""),
+            !Yii::$app->user->isGuest
+                ?['label' => 'Reactivos', 'url' => ['/reactivos/index']] : (""),
+            !Yii::$app->user->isGuest
+                ?['label' => 'Usuarios', 'url' => ['/usuarios/index']] : (""),
+                
         ]
     ]);
 
@@ -61,7 +67,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 : '<li class="nav-item">'
                     . Html::beginForm(['/site/logout'])
                     . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        'Logout (' . Yii::$app->user->identity->Nombre. ')',
                         ['class' => 'nav-link btn btn-link logout']
                     )
                     . Html::endForm()
